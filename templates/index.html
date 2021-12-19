@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Deployment</title>
+</head>
+
+<body>
+    <h1>Model Deployment</h1>
+
+    <form action="/sub" method="POST">
+        <input type="text" name="username" placeholder="user name">
+        <input type="submit">
+    </form>
+
+    <br>
+
+    <form name="/myForm" action="" method="post" onsubmit="">
+        <input type="radio" id=prophet name="model" value="prophet"> 
+        <label for="prophet">Prophet</label>
+        <br>
+        <input type="radio" id=sarima name="model" value="sarima">
+        <label for="prophet">SARIMA</label>
+        <br>
+        </form>
+
+
+
+
+    <p>Enter the year you would like forecasted too</p>
+    <form action="/date" method="POST">
+        <input type="Start Date" name="year_request" placeholder="e.g. 2010">
+        <input type="submit">
+    </form>
+
+
+
+</body>
+
+</html>
