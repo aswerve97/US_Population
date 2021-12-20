@@ -10,14 +10,6 @@
 
 <body>
     <h1>Model Deployment</h1>
-
-    <form action="/sub" method="POST">
-        <input type="text" name="username" placeholder="user name">
-        <input type="submit">
-    </form>
-
-    <br>
-
     <form name="/myForm" action="" method="post" onsubmit="">
         <input type="radio" id=prophet name="model" value="prophet"> 
         <label for="prophet">Prophet</label>
@@ -27,13 +19,17 @@
         <br>
         </form>
 
+        <p>Enter the year you would like starts from</p>
+        <form action="/start" method="POST">
+            <input type="Start Date" name="year_request" placeholder="e.g. 1980">
+        </form>
 
 
 
-    <p>Enter the year you would like forecasted too</p>
+    <p>Enter the year you would like forecasts to end</p>
     <form action="/date" method="POST">
         <input type="Start Date" name="year_request" placeholder="e.g. 2010">
-        <input type="submit">
+        <input type="submit" value="Forecast" >
     </form>
 
 
