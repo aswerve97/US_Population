@@ -19,7 +19,6 @@ def submit():
 def submit_date():
     if request.method == "POST":
         year = request.form['year_request']
-    #return render_template('sub.html', n=json_object)
     forecast_dict = predict('1980', year )
     return  jsonify(forecast_dict) 
 
