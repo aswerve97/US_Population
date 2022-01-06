@@ -10,25 +10,23 @@
 
 <body>
     <h1>Model Deployment</h1>
-    <form name="/myForm" action="" method="post" onsubmit="">
+   
+
+
+
+    
+    <form action="/date" method="POST">
+        <p>What type of model would you like to use?</p>
         <input type="radio" id=prophet name="model" value="prophet"> 
         <label for="prophet">Prophet</label>
         <br>
         <input type="radio" id=sarima name="model" value="sarima">
         <label for="prophet">SARIMA</label>
         <br>
-        </form>
-
-        <p>Enter the year you would like starts from</p>
-        <form action="/start" method="POST">
-            <input type="Start Date" name="year_request" placeholder="e.g. 1980">
-        </form>
-
-
-
-    <p>Enter the year you would like forecasts to end</p>
-    <form action="/date" method="POST">
-        <input type="Start Date" name="year_request" placeholder="e.g. 2010">
+        <p>Enter the year you would like forecasts to start from</p>
+        <input type="Start Date" name="start_year" placeholder="e.g. 1980">
+        <p>Enter the year you would like forecasts to end</p>
+        <input type="Start Date" name="end_year" placeholder="e.g. 2010">
         <input type="submit" value="Forecast" >
     </form>
 
