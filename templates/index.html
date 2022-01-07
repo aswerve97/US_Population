@@ -10,11 +10,15 @@
 
 <body>
     <h1>Model Deployment</h1>
-   
+   <h1>Background</h1>
+   <p>This is a forecasting model that is built of classical time series methods
+       such as the SARIMA model frame. This model is predicting US population
+       using data from the 1900-1980s. You can specifiy which year you would the 
+       forecast to start from to see how the start date for the model changes
+       the end prediction
+   </p>
 
 
-
-    
     <form action="/date" method="POST">
         <p>What type of model would you like to use?</p>
         <input type="radio" id=prophet name="model" value="prophet"> 
