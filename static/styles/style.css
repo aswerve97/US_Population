@@ -1,20 +1,20 @@
-p{
+p {
     word-break: normal;
     white-space: normal;
 }
 
-#background{
+#background {
     font-size: larger;
     word-break: normal;
     white-space: normal;
 }
-.formText{
+.formText {
     margin-bottom: 0;
 }   
-#textAndForm{
+#textAndForm {
     flex: 1 1 40%;
 }
-#chart{
+#chart {
     flex: 2 1 60%;
     position: relative; 
     height: 40vh;
@@ -41,4 +41,4 @@ label::after {
     .box:nth-child(3) {
       float: right;
     }
-  }
+}
