@@ -18,17 +18,17 @@ async function getActualPopulation() {
     return response.json(); 
 }
 
-function updateChart(newData, chart, pos){
+function updateChart(newData, chart, pos) {
     chart.data.datasets[pos].data = newData;
     chart.update()
 }
 
-function filterActualPopulation(pop){
-    let popChart = Chart.getChart("usPopulation");
+function filterActualPopulation(pop) {
+    let popChart = Chart.getChart('usPopulation');
     let startYear = Object.keys(popChart.data.datasets[0].data)[0];
     let newPop = {};
-    for(let key in pop){
-        if(parseInt(key) >= parseInt(startYear)){
+    for(let key in pop) {
+        if(parseInt(key) >= parseInt(startYear)) {
             Object.assign(newPop, {[key]: pop[key]});
         }
     }
@@ -37,12 +37,12 @@ function filterActualPopulation(pop){
 
 function renderChart(predictedPop, actualPop) {
     let chartCanvas = document.getElementById('usPopulation');
-    const popChart = Chart.getChart("usPopulation"); 
+    const popChart = Chart.getChart('usPopulation'); 
     
     if(typeof popChart !== 'undefined') {
         updateChart(predictedPop, popChart, 0);
         actualPop.then((pop)=>{
-            filterActualPopulation(pop)            
+            filterActualPopulation(pop)
         })
     }
     
