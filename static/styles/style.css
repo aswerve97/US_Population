@@ -1,0 +1,44 @@
+p{
+    word-break: normal;
+    white-space: normal;
+}
+
+#background{
+    font-size: larger;
+    word-break: normal;
+    white-space: normal;
+}
+.formText{
+    margin-bottom: 0;
+}   
+#textAndForm{
+    flex: 1 1 40%;
+}
+#chart{
+    flex: 2 1 60%;
+    position: relative; 
+    height: 40vh;
+    width: 60vw;
+}
+label::after {
+    content: "";
+    display: block;
+}
+.box {
+    display: flex;
+}
+
+
+@media screen and (max-width: 990px) {
+    .box {
+      height: auto;
+      display: table;
+      flex-direction: column;
+    }
+    .box:nth-child(2) {
+      float: left;
+    }
+    .box:nth-child(3) {
+      float: right;
+    }
+  }
