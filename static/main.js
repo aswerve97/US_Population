@@ -9,7 +9,7 @@ document.forms['query'].addEventListener('submit', (event) => {
         let actualPop = getActualPopulation();
         renderChart(body,actualPop);
     }).catch((error) => {
-        console.log("Response failed: " + event.error)
+        console.log('Response failed: ' + event.error)
     });
 });
 

@@ -11,13 +11,13 @@ def landing():
 
 @app.route('/date', methods=['POST'])
 def submit_date():
-    if request.method == "POST":
+    if request.method == 'POST':
         start_year = request.form['start_year']
         end_year = request.form['end_year']
     forecast_dict = predict(start_year, end_year )
     return  jsonify(forecast_dict) 
 
-@app.route('/actualPop', methods=["GET"])
+@app.route('/actualPop', methods=['GET'])
 def return_actual_population():
     return send_from_directory('static', 'actualUSPopulation.json')
 
