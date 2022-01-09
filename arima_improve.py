@@ -12,13 +12,4 @@ arima_value_forecast = forecast.predicted_mean
 
 df = arima_value_forecast.to_frame()
 
-df.to_html('ASDKJAJSJKASJKHS')
-# year = []
-# fc = []
-# for date in forecast.row_labels:
-#     year.append(str(date)[:4])
-# for value in arima_value_forecast:
-#     fc.append(int(value))
-# result = zip(year, fc)
 
-# print(result)
