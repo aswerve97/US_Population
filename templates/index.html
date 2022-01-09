@@ -18,11 +18,13 @@
         <div id="textAndForm">
             <h1>Background</h1>
             <p id="background">
-                This is a forecasting model that is built of classical time series methods
-                such as the SARIMA model frame. This model is predicting US population
-                using data from the 1900-1980s. You can specifiy which year you would the
+                This is a forecasting model that is built using classical
+                time series methods in particular the AutoRegressive Integrated
+                Moving Average Model or ARIMA for short. This model is
+                predicting US population. You can specifiy which year you would the
                 forecast to start from to see how the start date for the model changes
-                the end prediction.
+                the end prediction. In other words, you can ask the model to only consider
+                dates up to a certain point and ask if to predict after that.
             </p>
 
             <form id="query" action="/date" method="POST">
@@ -37,6 +39,7 @@
                 <p class="formText">Enter the year you would like forecasts to end:</p>
                 <input type="Start Date" name="end_year" id="end_year" placeholder="e.g. 2010" required
                     pattern="^(19|20)\d{2}$">
+
                 <input type="submit" value="Forecast">
             </form>
         </div>
