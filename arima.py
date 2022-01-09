@@ -4,7 +4,7 @@ with open("arima121model.pkl", "rb") as file:
     arima_model = pickle.load(file)
 
 
-def predict(start="1980", end="1990"):
+def arima_predict(start="1980", end="1990"):
 
     forecast = arima_model.get_prediction(start, end)
     arima_value_forecast = forecast.predicted_mean
