@@ -9,7 +9,7 @@ document.forms['query'].addEventListener('submit', (event) => {
         let actualPop = getActualPopulation();
         renderChart(body, actualPop);
     }).catch((error) => {
-        console.log('Response failed: ' + error)
+        console.log('Response failed: ' + error);
     });
 });
 
@@ -57,7 +57,7 @@ async function getActualPopulation() {
 
 function updateChart(newData, chart, pos) {
     chart.data.datasets[pos].data = newData;
-    chart.update()
+    chart.update();
 }
 
 function filterActualPopulation(pop) {
@@ -82,7 +82,7 @@ function renderChart(predictedPop, actualPop) {
     if (typeof popChart !== 'undefined') {
         updateChart(predictedPop, popChart, 0);
         actualPop.then((pop) => {
-            filterActualPopulation(pop)
+            filterActualPopulation(pop);
         })
     }
 
