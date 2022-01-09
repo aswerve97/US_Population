@@ -1,14 +1,12 @@
 import pickle
-import pandas as pd
-import json 
 
-
-with open('model.pkl', 'rb') as file:
+with open("arima121model.pkl", "rb") as file:
     arima_model = pickle.load(file)
 
-def predict(start = '1980', end = '1990'):
 
-    forecast = arima_model.get_prediction( start , end )
+def predict(start="1980", end="1990"):
+
+    forecast = arima_model.get_prediction(start, end)
     arima_value_forecast = forecast.predicted_mean
 
     year = []
@@ -21,9 +19,7 @@ def predict(start = '1980', end = '1990'):
 
     forecast_dict = dict()
 
-    for year,value in result:
+    for year, value in result:
         forecast_dict[year] = value
-
-    #json_object = json.dumps(forecast_dict, indent = 4) 
 
     return forecast_dict
