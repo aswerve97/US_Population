@@ -14,6 +14,9 @@ p {
 #textAndForm {
     flex: 1 1 40%;
 }
+input:not(:focus):not(:placeholder-shown):invalid{
+    background-color: #ff8668;
+}
 #chart {
     flex: 2 1 60%;
     position: relative; 

@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>        <meta charset="UTF-8">
-        <link rel="stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Model Deployment</title>
-    </head>
 
-    <body>
-        <h1>Model Deployment</h1>
-        <div class="box" id="page">
-            <div id="textAndForm">
-                <h1>Background</h1>
-                <p id="background">
-                    This is a forecasting model that is built of classical time series methods
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"
+        integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Deployment</title>
+</head>
+
+<body>
+    <h1>Model Deployment</h1>
+    <div class="box" id="page">
+        <div id="textAndForm">
+            <h1>Background</h1>
+            <p id="background">
+                This is a forecasting model that is built of classical time series methods
                 such as the SARIMA model frame. This model is predicting US population
-                using data from the 1900-1980s. You can specifiy which year you would the 
+                using data from the 1900-1980s. You can specifiy which year you would the
                 forecast to start from to see how the start date for the model changes
                 the end prediction.
-                </p>
+            </p>
 
-                <form id="query" action="/date" method="POST">
-                    <p>What type of model would you like to use?</p>
-                    <input type="radio" id=prophet name="model" value="prophet"> 
-                    <label for="prophet">Prophet</label>
-                    <input type="radio" id=sarima name="model" value="sarima">
-                    <label for="prophet">SARIMA</label>
-                    <p class="formText">Enter the year you would like forecasts to start from:</p>
-                    <input type="Start Date" name="start_year" placeholder="e.g. 1980">
-                    <p class="formText">Enter the year you would like forecasts to end:</p>
-                    <input type="Start Date" name="end_year" placeholder="e.g. 2010">
-                    <input type="submit" value="Forecast">
-                </form>
-            </div>
-            <div class="box" id="chart">
-                <canvas id="usPopulation"></canvas>
-            </div>
+            <form id="query" action="/date" method="POST">
+                <p>What type of model would you like to use?</p>
+                <input type="radio" id=prophet name="model" value="prophet">
+                <label for="prophet">Prophet</label>
+                <input type="radio" id=sarima name="model" value="sarima">
+                <label for="prophet">SARIMA</label>
+                <p class="formText">Enter the year you would like forecasts to start from:</p>
+                <input type="Start Date" name="start_year" id="start_year" placeholder="e.g. 1980" required
+                    pattern="^(19|20)\d{2}$">
+                <p class="formText">Enter the year you would like forecasts to end:</p>
+                <input type="Start Date" name="end_year" id="end_year" placeholder="e.g. 2010" required
+                    pattern="^(19|20)\d{2}$">
+                <input type="submit" value="Forecast">
+            </form>
         </div>
-    </body>
-    <script src="{{url_for('static', filename='main.js')}}"></script>
+        <div class="box" id="chart">
+            <canvas id="usPopulation"></canvas>
+        </div>
+    </div>
+</body>
+<script src="{{url_for('static', filename='main.js')}}"></script>
+
 </html>
