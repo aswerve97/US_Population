@@ -20,7 +20,7 @@ def prophet_predict(start='1980', end='2000'):
     forecast_dict = dict()
     for index, dates in enumerate(forecast['ds']):
         if dates.month == 1 and dates.day == 1:
-            forecast_dict[dates.year] = forecast['yhat'][index]
+            forecast_dict[(dates.year)] = str(forecast['yhat'][index])
 
     return forecast_dict
 

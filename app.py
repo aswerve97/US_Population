@@ -20,7 +20,7 @@ def submit_date():
         forecast_dict = arima_predict(start_year, end_year )
         return  jsonify(forecast_dict) 
     elif request.form['model'] == 'prophet':
-        forecast_dict = arima_predict(start_year, end_year )
+        forecast_dict = prophet_predict(start_year, end_year )
         return  jsonify(forecast_dict) 
 @app.route('/actualPop', methods=['GET'])
 def return_actual_population():
