@@ -8,7 +8,7 @@ def prophet_predict(start='1980', end='2000'):
     '''
 
     years = int(end) - int(start)
-    with open('FBModel.json', 'r') as fin:
+    with open('FBmodel.json', 'r') as fin:
         j = model_from_json(json.load(fin))
 
     future = j.make_future_dataframe(periods=int(365.25 * years))
