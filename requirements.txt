@@ -1,6 +1,5 @@
 numpy==1.21.4
 Cython==0.29.25
-pystan==2.19.1.1
 appnope==0.1.2
 argon2-cffi==21.1.0
 astroid==2.9.0
@@ -66,7 +65,6 @@ platformdirs==2.4.0
 pmdarima==1.8.4
 prometheus-client==0.12.0
 prompt-toolkit==3.0.23
-prophet==1.0.1
 ptyprocess==0.7.0
 pycodestyle==2.8.0
 pycparser==2.21
@@ -103,3 +101,5 @@ webencodings==0.5.1
 Werkzeug==2.0.2
 widgetsnbextension==3.5.2
 wrapt==1.13.3
+pystan==2.19.1.1
+prophet==1.0.1
