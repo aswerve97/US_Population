@@ -34,9 +34,12 @@
                 <input type="radio" id=sarima name="model" value="sarima">
                 <label for="prophet">SARIMA</label>
                 <p class="formText">Enter the year you would like forecasts to start from:</p>
-                <input type="Start Date" name="start_year" placeholder="e.g. 1980">
+                <input type="Start Date" name="start_year" id="start_year" placeholder="e.g. 1980" required
+                    pattern="^(19|20)\d{2}$">
                 <p class="formText">Enter the year you would like forecasts to end:</p>
-                <input type="Start Date" name="end_year" placeholder="e.g. 2010">
+                <input type="Start Date" name="end_year" id="end_year" placeholder="e.g. 2010" required
+                    pattern="^(19|20)\d{2}$">
+
                 <input type="submit" value="Forecast">
             </form>
         </div>
