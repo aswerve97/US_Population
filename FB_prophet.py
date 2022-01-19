@@ -5,14 +5,15 @@ import json
 def prophet_predict(start=1980, end=2000):
     '''
     It is assumed start year will be greater then end year
-    '''
+    '''   
+     
     start = int(start)
     end   = int(end)
     years = end - start
     with open('FBmodel.json', 'r') as fin:
         j = model_from_json(json.load(fin))
 
-    future = j.make_future_dataframe(periods=int(365.25 * years))
+    future = j.make_future_dataframe(periods=years, freq='YS')
     forecast = j.predict(future)
 
     forecast = forecast[['ds', 'yhat']]
