@@ -12,7 +12,7 @@ def prophet_predict(start='1980', end='2000'):
     with open('FBmodel.json', 'r') as fin:
         j = model_from_json(json.load(fin))
 
-    future = j.make_future_dataframe(periods=int(365.25 * years))
+    future = j.make_future_dataframe(periods = years, freq='YS' )
     forecast = j.predict(future)
 
     forecast = forecast[['ds', 'yhat']]
@@ -22,6 +22,7 @@ def prophet_predict(start='1980', end='2000'):
     for index, dates in enumerate(forecast['ds']):
         if dates.month == 1 and dates.day == 1:
             forecast_dict[(dates.year)] = str(forecast['yhat'][index])
+
 
     return forecast_dict
 
