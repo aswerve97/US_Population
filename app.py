@@ -7,7 +7,6 @@ from FB_prophet import prophet_predict
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/[postgresql-round-77596]'
 db = SQLAlchemy(app)
-print(type(db))
 
 @app.route('/')
 def landing():
