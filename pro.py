@@ -12,17 +12,25 @@ year_range = int(projections_end) - int(end_of_training)
 
 df = pd.read_sql(
 f'''
-SELECT
-date_population AS DS,
-population AS Y
+SELECT 
+*
 FROM
-us_population'''
-    ,con = con)
+(
+SELECT
+	date_population AS DS,
+	population AS Y
+FROM
+us_population) as sub
+WHERE
+DS >='{start_of_trainng}-01-01' AND DS <='{end_of_training}-01-01' ''',
+con = con
+)
 
 m = prophet.Prophet(daily_seasonality=False, weekly_seasonality=False)
 m.fit(df)
 
-future = m.make_future_dataframe(periods = 1, freq='YS')
-print(future)
-
+future = m.make_future_dataframe(periods = year_range, freq='YS')
+forecast = m.predict(future)
+a = forecast[['ds', 'yhat']].tail()
 #forecast = m.predict(future)
+print(a)
