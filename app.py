@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from flask.helpers import send_from_directory
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 from arima import arima_predict
 from FB_prophet import prophet_predict
 
