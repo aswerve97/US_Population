@@ -32,6 +32,7 @@ scipy==1.7.3
 setuptools-git==1.2
 six==1.16.0
 statsmodels==0.13.1
+setuptools_scm==6.3.2
 tqdm==4.62.3
 ujson==5.1.0
 Werkzeug==2.0.2
