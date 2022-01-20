@@ -12,9 +12,9 @@ def prophet_predict(start=1980, end=2000):
     start_of_trainng = 1900
     #we want our our training model to not consider any data after start date 
     
-    end_of_training = start
-    projections_end = end
-    year_range = int(projections_end) - int(end_of_training)
+    end_of_training = int(start)
+    projections_end = int(end)
+    year_range = projections_end - end_of_training
 
     df = pd.read_sql(
     f'''
@@ -42,7 +42,8 @@ def prophet_predict(start=1980, end=2000):
 
     forecast_dict = dict()
     for index, dates in enumerate(forecast['ds']):
-        forecast_dict[(dates.year)] = str(forecast['yhat'][index])
+        if dates.year >= end_of_training:
+            forecast_dict[(dates.year)] = str(forecast['yhat'][index])
 
 
     return forecast_dict
