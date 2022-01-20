@@ -10,7 +10,9 @@ def prophet_predict(start=1980, end=2000):
      
     start = int(start)
     end   = int(end)
-    years = end - start
+    model_start = 1981
+    years = end - (min(1980,start))
+
     with open('FBmodel.json', 'r') as fin:
         j = model_from_json(json.load(fin))
 
@@ -22,9 +24,8 @@ def prophet_predict(start=1980, end=2000):
 
     forecast_dict = dict()
     for index, dates in enumerate(forecast['ds']):
-        if dates.year >= start and dates.year <= end and dates.month == 1 and dates.day == 1:
+        if dates.year >= start and dates.year <= end:
             forecast_dict[(dates.year)] = str(forecast['yhat'][index])
-
 
     return forecast_dict
 
