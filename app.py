@@ -8,6 +8,8 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/[postgresql-round-77596]'
 db = SQLAlchemy(app)
 
+print(type(db))
+
 @app.route('/')
 def landing():
     return render_template('index.html')
