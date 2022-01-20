@@ -36,6 +36,5 @@ forecast['yhat'] = forecast['yhat'].astype(int)
 forecast_dict = dict()
 for index, dates in enumerate(forecast['ds']):
 	forecast_dict[(dates.year)] = str(forecast['yhat'][index])
-	#if dates.year >= start and dates.year <= end and dates.month == 1 and dates.day == 1:
+	
 	    
-print(forecast_dict)

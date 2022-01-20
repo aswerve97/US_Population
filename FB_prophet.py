@@ -1,29 +1,47 @@
-from prophet.serialize import model_from_json
-import json
-
+import prophet
+import psycopg2
+import pandas as pd
+from secret import DATABASE_URL
+con = psycopg2.connect(DATABASE_URL)
 
 def prophet_predict(start=1980, end=2000):
     '''
     It is assumed start year will be greater then end year and values are ints
     or at least easily converted to ints 
     '''
-     
-    start = int(start)
-    end   = int(end)
-    years = end - start
-    with open('FBmodel.json', 'r') as fin:
-        j = model_from_json(json.load(fin))
+    start_of_trainng = 1900
+    #we want our our training model to not consider any data after this date
+    end_of_training = start
+    projections_end = end
+    year_range = int(projections_end) - int(end_of_training)
 
-    future = j.make_future_dataframe(periods = years, freq='YS' )
-    forecast = j.predict(future)
+    df = pd.read_sql(
+    f'''
+    SELECT 
+    *
+    FROM
+    (
+    SELECT
+        date_population AS DS,
+        population AS Y
+    FROM
+    us_population) as sub
+    WHERE
+    DS >='{start_of_trainng}-01-01' AND DS <='{end_of_training}-01-01' ''',
+    con = con
+    )
 
-    forecast = forecast[['ds', 'yhat']]
+    m = prophet.Prophet(daily_seasonality=False, weekly_seasonality=False)
+    m.fit(df)
+
+    future = m.make_future_dataframe(periods = year_range, freq='YS')
+    forecast = m.predict(future)
+
     forecast['yhat'] = forecast['yhat'].astype(int)
 
     forecast_dict = dict()
     for index, dates in enumerate(forecast['ds']):
-        if dates.year >= start and dates.year <= end and dates.month == 1 and dates.day == 1:
-            forecast_dict[(dates.year)] = str(forecast['yhat'][index])
+        forecast_dict[(dates.year)] = str(forecast['yhat'][index])
 
 
     return forecast_dict
