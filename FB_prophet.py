@@ -46,6 +46,5 @@ def prophet_predict(start=1980, end=2000 ):
         if dates.year >= end_of_training:
             forecast_dict[(dates.year)] = str(forecast['yhat'][index])
 
-
     return forecast_dict
 
