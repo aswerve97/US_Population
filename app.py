@@ -1,10 +1,13 @@
 from flask import Flask, render_template, request, jsonify
 from flask.helpers import send_from_directory
+from flask.ext.sqlalchemy import SQLAlchemy
 from arima import arima_predict
 from FB_prophet import prophet_predict
 
 app = Flask(__name__)
-
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://localhost/[postgresql-round-77596]'
+db = SQLAlchemy(app)
+print(type(db))
 
 @app.route('/')
 def landing():
