@@ -37,4 +37,4 @@ forecast_dict = dict()
 for index, dates in enumerate(forecast['ds']):
 	forecast_dict[(dates.year)] = str(forecast['yhat'][index])
 	
-	    
+print(forecast_dict)

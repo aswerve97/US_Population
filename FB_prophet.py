@@ -10,7 +10,8 @@ def prophet_predict(start=1980, end=2000):
     or at least easily converted to ints 
     '''
     start_of_trainng = 1900
-    #we want our our training model to not consider any data after this date
+    #we want our our training model to not consider any data after start date 
+    
     end_of_training = start
     projections_end = end
     year_range = int(projections_end) - int(end_of_training)
