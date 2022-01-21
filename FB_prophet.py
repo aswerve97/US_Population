@@ -1,10 +1,12 @@
 import prophet
 import psycopg2
 import pandas as pd
-from secret import DATABASE_URL
-con = psycopg2.connect(DATABASE_URL)
+#from secret import DATABASE_URL
+import os
+db_connection_url = os.environ.get(db_url)
+con = psycopg2.connect(db_connection_url)
 
-def prophet_predict(start=1980, end=2000):
+def prophet_predict(start=1980, end=2000 ):
     '''
     It is assumed start year will be greater then end year and values are ints
     or at least easily converted to ints 
