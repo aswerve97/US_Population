@@ -1,7 +1,6 @@
 import prophet
 import psycopg2
 import pandas as pd
-#from secret import DATABASE_URL
 import os
 db_connection_url = os.environ.get(db_url)
 con = psycopg2.connect(db_connection_url)
