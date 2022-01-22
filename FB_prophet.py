@@ -2,7 +2,7 @@ import prophet
 import psycopg2
 import pandas as pd
 import os
-db_connection_url = os.environ.get(db_url)
+db_connection_url = os.environ.get('db_url')
 con = psycopg2.connect(db_connection_url)
 
 def prophet_predict(start=1980, end=2000 ):
