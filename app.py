@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from flask.helpers import send_from_directory
-from arima import arima_predict 
+from arima import arima_predict
 from FB_prophet import prophet_predict
 
 app = Flask(__name__)
