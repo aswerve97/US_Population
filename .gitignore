@@ -8,6 +8,10 @@ __pycache__/
 # C extensions
 *.so
 .DS_Store
+*secret
+secret*
+
+
 
 # Distribution / packaging
 .Python
