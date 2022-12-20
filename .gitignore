@@ -10,7 +10,7 @@ __pycache__/
 .DS_Store
 *secret
 secret*
-
+*us_pop*
 
 
 # Distribution / packaging
